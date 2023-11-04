@@ -1,36 +1,202 @@
-<!doctype html>
-<meta charset=utf-8>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<!DOCTYPE html>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Pizza Mak</title>
 <style>
-    html {
-        background: coral;
-        color: ghostwhite;
-        font-family: Georgia, serif;
-    }
+  html {
+    background: coral;
+    color: ghostwhite;
+    font-family: Georgia, serif;
+  }
+  body {
+    margin: 0;
+  }
+  body > header {
+    display: flex;
+    align-items: center;
+  }
+  body > header h1 {
+    flex-shrink: 1;
+  }
+  body > header dl,
+  body > header dt,
+  body > header dd {
+    display: inline;
+    margin: 0;
+  }
+  body > header nav {
+    text-align: end;
+    flex-grow: 1;
+  }
+  article {
+    height: 100vh;
+    position: relative;
+    background: lightsalmon;
+  }
+  article header {
+    position: absolute;
+    top: 0;
+    padding: 1em;
+  }
+  article h1 {
+    margin: 0;
+    padding: 0.5em 0;
+  }
+  article ul,
+  article li {
+    height: 100%;
+  }
+  article ul {
+    padding: 0;
+    list-style: none;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+  }
+  article:nth-child(even) {
+    background: tomato;
+  }
+  article li {
+    display: inline-block;
+    width: 40em;
+  }
+  article li:nth-child(2) {
+    background: rgba(100, 0, 0, 0.1);
+  }
 </style>
 <header>
-    <h1>Pizza Mak</h1>
-    <dl>
-        <dt>Oven open</dt>
-        <dd>
-            <abbr title="Thursday">Thu</abbr>
-            - <abbr title="Saturday">Sat</abbr>
-        </dd>
-        <dd>
-            <time datetime="18:00">6:00pm</time>
-            - <time datetime="21:00">9:00pm</time>
-        </dd>
-    </dl>
-    <a href="tel:012345678">012 3456 6789</a>
+  <h1>Belo de Mama</h1>
+  <p>Pizzeria</p>
+  <dl>
+    <dt>Open</dt>
+    <dd>
+      <abbr title="Thursday">Thu</abbr>
+      - <abbr title="Saturday">Sat</abbr>
+    </dd>
+    <dd>
+      <time datetime="18:00">6:00pm</time>
+      - <time datetime="21:00">9:00pm</time>
+    </dd>
+  </dl>
+  <nav>
+    Order <a href="tel:012345678">012 3456 6789</a>
+    <!-- <a href="#Menu">&#9776;</a> -->
+  </nav>
 </header>
+<nav id="Menu">
+  <ol>
+    <li><a href="#Mozarella">Mozarella</a> ฿270</li>
+    <li><a href="#Pomodoro">Pomodoro</a> ฿250</li>
+    <li><a href="#Margherita">Margherita</a> ฿270</li>
+    <li><a href="#Marinara">Marinara</a> ฿260</li>
+    <li><a href="#Salsiccia">Salsiccia</a> ฿320</li>
+    <li><a href="#Cotto">Cotto</a> ฿300</li>
+  </ol>
+</nav>
 <article>
-    <h1>Margharita</h1>
+  <header>
+    <h1 id="Mozarella">Mozarella</h1>
     <dl>
-        <dt>Price</dt>
-        <dd>฿270</dd>
-        <dt>Ingredients</dt>
-        <dd>Tomato sauce</dd>
-        <dd>mozarella cheese</dd>
+      <dt>Price</dt>
+      <dd>฿270</dd>
+      <dt>Ingredients</dt>
+      <dd>Mozarella cheese</dd>
     </dl>
+    <a href="tel:012345678">Order</a>
+  </header>
+  <ul>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
 </article>
+<article>
+  <header>
+    <h1 id="Pomodoro">Pomodoro</h1>
+    <dl>
+      <dt>Price</dt>
+      <dd>฿250</dd>
+      <dt>Ingredients</dt>
+      <dd>Tomato sauce</dd>
+    </dl>
+    <a href="tel:012345678">Order</a>
+  </header>
+  <ul>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+</article>
+<article>
+  <header>
+    <h1 id="Margherita">Margherita</h1>
+    <dl>
+      <dt>Price</dt>
+      <dd>฿270</dd>
+      <dt>Ingredients</dt>
+      <dd>Tomato sauce</dd>
+      <dd>Mozarella cheese</dd>
+    </dl>
+  </header>
+  <ul>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+</article>
+<article>
+  <header>
+    <h1 id="Marinara">Marinara</h1>
+    <dl>
+      <dt>Price</dt>
+      <dd>฿260</dd>
+      <dt>Ingredients</dt>
+      <dd>Tomato sauce</dd>
+      <dd>Origano</dd>
+      <dd>Garlic</dd>
+      <dd>Extra virgin olive oil</dd>
+    </dl>
+  </header>
+  <ul>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+</article>
+<article>
+  <header>
+    <h1 id="Salsiccia">Salsiccia</h1>
+    <dl>
+      <dt>Price</dt>
+      <dd>฿320</dd>
+      <dt>Ingredients</dt>
+      <dd>Tomato sauce</dd>
+      <dd>Mozarella cheese</dd>
+      <dd>Home made Italian sausage</dd>
+    </dl>
+  </header>
+  <ul>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+</article>
+<article>
+  <header>
+    <h1 id="Cotto">Cotto</h1>
+    <dl>
+      <dt>Price</dt>
+      <dd>฿300</dd>
+      <dt>Ingredients</dt>
+      <dd>Tomato sauce</dd>
+      <dd>Mozarella cheese</dd>
+      <dd>Ham</dd>
+    </dl>
+  </header>
+  <ul>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+</article>
+<!-- <script type="module" src="/main.js"></script> -->
