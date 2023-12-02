@@ -3,200 +3,367 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Pizza Mak</title>
 <style>
-  html {
-    background: coral;
-    color: ghostwhite;
-    font-family: Georgia, serif;
+  :root {
+    --p: 2rem;
+    --color-heading: bisque;
   }
+
+  html {
+    background-color: tomato;
+    /* background: coral; */
+    /* color: ghostwhite; */
+    font-family: Georgia, serif;
+    scroll-behavior: smooth;
+  }
+
   body {
     margin: 0;
   }
-  body > header {
+
+  a {
+    color: lavender;
+  }
+
+  #Header {
+    /* position: fixed; */
     display: flex;
+    /* flex-wrap: wrap; */
     align-items: center;
+    z-index: 2;
+    /* background-color: darkolivegreen */
+    padding: var(--p);
+    /* color: dimg */
   }
-  body > header h1 {
+
+  #Header h1 {
+    font-size: 4em;
     flex-shrink: 1;
+    font-weight: 500;
+    margin: 0;
+    color: bisque;
+    text-shadow: .5rem .2rem limegreen;
+    margin-right: var(--p);
   }
-  body > header dl,
-  body > header dt,
-  body > header dd {
-    display: inline;
+
+  #Header p {
+    flex-basis: 100%;
+    order: 3;
+    font-style: italic;
+    margin: 0;
+    /* font-weight: 600; */
+  }
+
+  #Header dt {
+    color: var(--color-heading);
+    text-shadow: .2rem .1rem limegreen;
+    font-size: 1.5em;
+    font-style: italic;
+    text-transform: uppercase;
+  }
+
+  #Header dl,
+  #Header dd {
+    /* display: inline; */
+    white-space: nowrap;
     margin: 0;
   }
-  body > header nav {
-    text-align: end;
+
+  #Nav {
+    /* text-align: end; */
     flex-grow: 1;
+    flex-basis: 100%;
+    padding: 0 var(--p);
+    font-size: 1.2em;
   }
+
+  #Nav a {
+    text-decoration: none;
+    color: bisque;
+    text-shadow: .1rem .2rem limegreen;
+  }
+
+  #Nav span {
+    font-size: 1.2em;
+  }
+
+  #Nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  #Nav li {
+    display: inline;
+  }
+
+  #Menu {
+    /* display: none; */
+    width: 0;
+    transition: width .3s linear;
+  }
+
+  #Menu ol {
+    margin-left: var(--p);
+  }
+
+  #Menu:target {
+    width: 12em;
+    /* float: left; */
+    display: block;
+    /* position: fixed; */
+    max-width: 70vw;
+    height: 100%;
+    /* z-index: 1; */
+    /* background:burlywood */
+  }
+
+  #Menu:target+article h1 {
+    display: none;
+  }
+
+  #Menu a {
+    display: block;
+  }
+
+  #Main {
+    width: 100%;
+    display: flex;
+  }
+
+  #Main>ol {
+    width: 100%;
+    padding: 0;
+    list-style: none;
+  }
+
   article {
-    height: 100vh;
+    color: AliceBlue;
+    height: 8 0vh;
     position: relative;
     background: lightsalmon;
   }
+
+
   article header {
+    /* width: 100%; */
     position: absolute;
+    padding: var(--p);
     top: 0;
-    padding: 1em;
   }
+
   article h1 {
     margin: 0;
-    padding: 0.5em 0;
+    /* padding: var(--p); */
+    /* padding-bottom: 0; */
+    text-shadow: .2em .2em 0 mediumblue;
+    font-size: 2em;
+    /* float: left; */
   }
-  article ul,
+
+  article dl {
+    margin: 0;
+    /* padding: var(--p); */
+    /* float: right; */
+    /* text-align: right; */
+    text-shadow: .1em .2em 0 darkviolet;
+  }
+
+  article dt {
+    font-size: 0.875em;
+  }
+
+  article dd {
+    margin: 0;
+  }
+
+  article strong {
+    font-size: 2em;
+  }
+
+  /* article ul,
   article li {
     height: 100%;
-  }
-  article ul {
+  } */
+  /* article ul {
     padding: 0;
     list-style: none;
     overflow-x: scroll;
     overflow-y: hidden;
     white-space: nowrap;
-  }
-  article:nth-child(even) {
-    background: tomato;
-  }
+  } */
   article li {
+    width: 100%;
+  }
+
+  article div {
+    /* clear: both; */
+    overflow-x: scroll;
+    white-space: nowrap;
+    width: 100%;
+  }
+
+  #Main li:nth-child(odd) img {
+    width: 80vw;
+  }
+
+  article img {
+    object-fit: cover;
+    height: 80vh;
+    width: 70vw;
+  }
+
+  /* article li {
     display: inline-block;
     width: 40em;
-  }
-  article li:nth-child(2) {
+  } */
+  /* article li:nth-child(2) {
     background: rgba(100, 0, 0, 0.1);
-  }
+  } */
 </style>
-<header>
-  <h1>Belo de Mama</h1>
-  <p>Pizzeria</p>
+<header id="Header">
+  <div>
+    <h1>Belo de Mama</h1>
+    <p>Pizzeria</p>
+  </div>
   <dl>
     <dt>Open</dt>
     <dd>
-      <abbr title="Thursday">Thu</abbr>
-      - <abbr title="Saturday">Sat</abbr>
+      <abbr title="Friday">Fri</abbr>,
+      <abbr title="Saturday">Sat</abbr>,
+      <abbr title="Sunday">Sun</abbr>
     </dd>
     <dd>
-      <time datetime="18:00">6:00pm</time>
-      - <time datetime="21:00">9:00pm</time>
+      <time datetime="18:00">6</time>-<time datetime="21:00">9 pm</time>
     </dd>
   </dl>
-  <nav>
-    Order <a href="tel:012345678">012 3456 6789</a>
-    <!-- <a href="#Menu">&#9776;</a> -->
-  </nav>
+  <!-- <a href="#Menu">&#x2630;</a> -->
 </header>
-<nav id="Menu">
-  <ol>
-    <li><a href="#Mozarella">Mozarella</a> ฿270</li>
-    <li><a href="#Pomodoro">Pomodoro</a> ฿250</li>
-    <li><a href="#Margherita">Margherita</a> ฿270</li>
-    <li><a href="#Marinara">Marinara</a> ฿260</li>
-    <li><a href="#Salsiccia">Salsiccia</a> ฿320</li>
-    <li><a href="#Cotto">Cotto</a> ฿300</li>
-  </ol>
+<nav id="Nav">
+  <ul>
+    <li><a href="#Menu"><span>☰</span> Menu</a></li>
+    <li><a href="#Order"><span>☎</span> Order</a></li>
+  </ul>
+  <!-- <a href="#Menu">&#9776;</a> -->
 </nav>
-<article>
-  <header>
-    <h1 id="Mozarella">Mozarella</h1>
-    <dl>
-      <dt>Price</dt>
-      <dd>฿270</dd>
-      <dt>Ingredients</dt>
-      <dd>Mozarella cheese</dd>
-    </dl>
-    <a href="tel:012345678">Order</a>
-  </header>
-  <ul>
-    <li></li>
-    <li></li>
-    <li></li>
-  </ul>
-</article>
-<article>
-  <header>
-    <h1 id="Pomodoro">Pomodoro</h1>
-    <dl>
-      <dt>Price</dt>
-      <dd>฿250</dd>
-      <dt>Ingredients</dt>
-      <dd>Tomato sauce</dd>
-    </dl>
-    <a href="tel:012345678">Order</a>
-  </header>
-  <ul>
-    <li></li>
-    <li></li>
-    <li></li>
-  </ul>
-</article>
-<article>
-  <header>
-    <h1 id="Margherita">Margherita</h1>
-    <dl>
-      <dt>Price</dt>
-      <dd>฿270</dd>
-      <dt>Ingredients</dt>
-      <dd>Tomato sauce</dd>
-      <dd>Mozarella cheese</dd>
-    </dl>
-  </header>
-  <ul>
-    <li></li>
-    <li></li>
-    <li></li>
-  </ul>
-</article>
-<article>
-  <header>
-    <h1 id="Marinara">Marinara</h1>
-    <dl>
-      <dt>Price</dt>
-      <dd>฿260</dd>
-      <dt>Ingredients</dt>
-      <dd>Tomato sauce</dd>
-      <dd>Origano</dd>
-      <dd>Garlic</dd>
-      <dd>Extra virgin olive oil</dd>
-    </dl>
-  </header>
-  <ul>
-    <li></li>
-    <li></li>
-    <li></li>
-  </ul>
-</article>
-<article>
-  <header>
-    <h1 id="Salsiccia">Salsiccia</h1>
-    <dl>
-      <dt>Price</dt>
-      <dd>฿320</dd>
-      <dt>Ingredients</dt>
-      <dd>Tomato sauce</dd>
-      <dd>Mozarella cheese</dd>
-      <dd>Home made Italian sausage</dd>
-    </dl>
-  </header>
-  <ul>
-    <li></li>
-    <li></li>
-    <li></li>
-  </ul>
-</article>
-<article>
-  <header>
-    <h1 id="Cotto">Cotto</h1>
-    <dl>
-      <dt>Price</dt>
-      <dd>฿300</dd>
-      <dt>Ingredients</dt>
-      <dd>Tomato sauce</dd>
-      <dd>Mozarella cheese</dd>
-      <dd>Ham</dd>
-    </dl>
-  </header>
-  <ul>
-    <li></li>
-    <li></li>
-    <li></li>
-  </ul>
-</article>
+<div id="Main" role="main">
+  <aside>
+    <nav id="Menu">
+      <ol>
+        <li><a href="#Mozarella">Mozarella</a> ฿270</li>
+        <li><a href="#Pomodoro">Pomodoro</a> ฿250</li>
+        <li><a href="#Margherita">Margherita</a> ฿270</li>
+        <li><a href="#Marinara">Marinara</a> ฿260</li>
+        <li><a href="#Salsiccia">Salsiccia</a> ฿320</li>
+        <li><a href="#Cotto">Cotto</a> ฿300</li>
+        <a href="#">⨯</a>
+      </ol>
+    </nav>
+  </aside>
+  <ol>
+    <li>
+      <article>
+        <header>
+          <h1 id="Mozarella">Mozarella</h1>
+          <dl>
+            <dt>Price</dt>
+            <dd>฿<strong>270</strong></dd>
+            <dt>Ingredients</dt>
+            <dd>Mozarella cheese</dd>
+          </dl>
+          <a href="tel:012345678">Order</a>
+        </header>
+      </article>
+    </li>
+    <li>
+      <article>
+        <header>
+          <h1 id="Pomodoro">Pomodoro</h1>
+          <dl>
+            <dt>Price</dt>
+            <dd>฿<strong>250</strong></dd>
+            <dt>Ingredients</dt>
+            <dd>Tomato sauce</dd>
+          </dl>
+          <a href="tel:012345678">Order</a>
+        </header>
+      </article>
+    </li>
+    <li>
+      <article>
+        <header>
+          <h1 id="Margherita">Margherita</h1>
+          <dl>
+            <dt>Price</dt>
+            <dd>฿<strong>270</strong></dd>
+            <dt>Ingredients</dt>
+            <dd>Tomato sauce</dd>
+            <dd>Mozarella cheese</dd>
+          </dl>
+        </header>
+
+        <div>
+          <img src="./margherita.jpg" alt="Margherita pizza topping of garlic flakes and oregano from close up" />
+          <img src="./margherita-garlic.jpg" />
+          <img src="./margherita-above.jpg" />
+          <img src="./margherita-fresh.jpg" />
+        </div>
+
+      </article>
+    </li>
+    <li>
+      <article>
+        <header>
+          <h1 id="Marinara">Marinara</h1>
+          <dl>
+            <dt>Price</dt>
+            <dd>฿<strong>260</strong></dd>
+            <dt>Ingredients</dt>
+            <dd>Tomato sauce</dd>
+            <dd>Origano</dd>
+            <dd>Garlic</dd>
+            <dd>Extra virgin olive oil</dd>
+          </dl>
+        </header>
+
+      </article>
+    </li>
+    <li>
+      <article>
+        <header>
+          <h1 id="Salsiccia">Salsiccia</h1>
+          <dl>
+            <dt>Price</dt>
+            <dd>฿<strong>320</strong></dd>
+            <dt>Ingredients</dt>
+            <dd>Tomato sauce</dd>
+            <dd>Mozarella cheese</dd>
+            <dd>Home made Italian sausage</dd>
+          </dl>
+        </header>
+
+      </article>
+    </li>
+    <li>
+      <article>
+        <header>
+          <h1 id="Cotto">Cotto</h1>
+          <dl>
+            <dt>Price</dt>
+            <dd>฿<strong>300</strong></dd>
+            <dt>Ingredients</dt>
+            <dd>Tomato sauce</dd>
+            <dd>Mozarella cheese</dd>
+            <dd>Ham</dd>
+          </dl>
+        </header>
+        <div>
+          <img src="./cotto-pizza-above.jpg" />
+          <img src="./cotto-pizza-close-up.jpg" />
+          <img src="./cotto-pizza-ham.jpg" />
+          <img src="./cotto-pizza-tomato.jpg" />
+        </div>
+      </article>
+    </li>
+  </ol>
+</div>
 <!-- <script type="module" src="/main.js"></script> -->
