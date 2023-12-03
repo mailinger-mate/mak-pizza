@@ -4,10 +4,15 @@
 <title>Pizza Mak</title>
 <style>
   :root {
+    --p-vw-x: 2em;
     --p: 2rem;
-    --color-heading: bisque;
+    --color-text: bisque;
   }
-
+  @media (min-width: 800px) {
+    :root {
+      --p-vw-x: 4em;
+    }
+  }
   html {
     background-color: tomato;
     /* background: coral; */
@@ -21,7 +26,17 @@
   }
 
   a {
-    color: lavender;
+    /* color: lavender; */
+    color: bisque;
+    text-decoration-style: dashed;
+    text-shadow: .5em .2em orangered;
+  }
+
+  a.margherita {
+    text-shadow: .5em .2em mediumpurple;
+  }
+  a:hover {
+    font-style: italic;
   }
 
   #Header {
@@ -31,7 +46,7 @@
     align-items: center;
     z-index: 2;
     /* background-color: darkolivegreen */
-    padding: var(--p);
+    padding: var(--p) var(--p-vw-x);
     /* color: dimg */
   }
 
@@ -46,15 +61,15 @@
   }
 
   #Header p {
-    flex-basis: 100%;
-    order: 3;
+    /* flex-basis: 100%; */
+    /* order: 3; */
     font-style: italic;
     margin: 0;
     /* font-weight: 600; */
   }
 
   #Header dt {
-    color: var(--color-heading);
+    color: var(--color-text);
     text-shadow: .2rem .1rem limegreen;
     font-size: 1.5em;
     font-style: italic;
@@ -72,14 +87,14 @@
     /* text-align: end; */
     flex-grow: 1;
     flex-basis: 100%;
-    padding: 0 var(--p);
+    padding: 0 var(--p-vw-x);
     font-size: 1.2em;
   }
 
   #Nav a {
     text-decoration: none;
     color: bisque;
-    text-shadow: .1rem .2rem limegreen;
+    /* text-shadow: .1rem .2rem limegreen; */
   }
 
   #Nav span {
@@ -100,14 +115,19 @@
     /* display: none; */
     width: 0;
     transition: width .3s linear;
+    margin-top: 3em;
+    /* padding-left: var(--p-vw-x); */
   }
 
   #Menu ol {
-    margin-left: var(--p);
+    margin: 0;
+    margin-left: var(--p-vw-x);
+    padding-right: var(--p);
+    padding: 0;
   }
 
   #Menu:target {
-    width: 12em;
+    width: 15em;
     /* float: left; */
     display: block;
     /* position: fixed; */
@@ -123,39 +143,43 @@
 
   #Menu a {
     display: block;
+    font-size: 1.5em;
   }
 
   #Main {
-    width: 100%;
+    /* width: 100%; */
     display: flex;
+    /* padding-left: var(--p) */
   }
 
   #Main>ol {
     width: 100%;
-    padding: 0;
     list-style: none;
+    padding: 0;
   }
 
   article {
     color: AliceBlue;
     height: 8 0vh;
     position: relative;
-    background: lightsalmon;
+    /* background: lightsalmon; */
   }
 
 
   article header {
     /* width: 100%; */
     position: absolute;
-    padding: var(--p);
+    padding: var(--p) var(--p-vw-x);
     top: 0;
+    z-index: 1;
+    /* backdrop-filter: blur(2px); */
   }
 
   article h1 {
     margin: 0;
     /* padding: var(--p); */
     /* padding-bottom: 0; */
-    text-shadow: .2em .2em 0 mediumblue;
+    text-shadow: .2em .1em 0 mediumblue;
     font-size: 3em;
     font-weight: 400;
     /* float: left; */
@@ -170,11 +194,15 @@
   }
 
   article dt {
-    font-size: 0.875em;
+    font-size: 0.75em;
+    font-style: italic;
   }
 
   article dd {
     margin: 0;
+  }
+  article dd:first-of-type {
+    margin-bottom: 1em;
   }
 
   article strong {
@@ -208,8 +236,9 @@
     width: 100%;
   }
 
-  #Main li:nth-child(odd) img {
-    width: 80vw;
+  #Main li:nth-child(even) img:first-child {
+    /* width: 80vw; */
+    margin-left: 5em;
   }
 
   article img {
@@ -217,6 +246,15 @@
     height: 80vh;
     width: 70vw;
   }
+  article img {
+    box-shadow: 4px 4px 0 bisque;
+    margin-right: 1em;
+    margin-bottom: 1em;
+    transform: rotate(1deg);
+  }
+  /* article img:first-child {
+    margin-left: var(--p)
+  } */
 
   /* article li {
     display: inline-block;
@@ -255,7 +293,7 @@
   <aside>
     <nav id="Menu">
       <ol>
-        <li><a href="#Mozarella">Mozarella</a> ฿270</li>
+        <li><a href="#Mozarella" class="margherita">Mozarella</a> ฿270</li>
         <li><a href="#Pomodoro">Pomodoro</a> ฿250</li>
         <li><a href="#Margherita">Margherita</a> ฿270</li>
         <li><a href="#Marinara">Marinara</a> ฿260</li>
@@ -266,7 +304,7 @@
     </nav>
   </aside>
   <ol>
-    <li>
+    <!-- <li>
       <article>
         <header>
           <h1 id="Mozarella">Mozarella</h1>
@@ -279,8 +317,8 @@
           <a href="tel:012345678">Order</a>
         </header>
       </article>
-    </li>
-    <li>
+    </li> -->
+    <!-- <li>
       <article>
         <header>
           <h1 id="Pomodoro">Pomodoro</h1>
@@ -293,7 +331,7 @@
           <a href="tel:012345678">Order</a>
         </header>
       </article>
-    </li>
+    </li> -->
     <li>
       <article>
         <header>
@@ -316,7 +354,7 @@
 
       </article>
     </li>
-    <li>
+    <!-- <li>
       <article>
         <header>
           <h1 id="Marinara">Marinara</h1>
@@ -348,7 +386,7 @@
         </header>
 
       </article>
-    </li>
+    </li> -->
     <li>
       <article>
         <header>
