@@ -8,18 +8,46 @@
     --p: 2rem;
     --color-text: bisque;
   }
+
   @media (min-width: 800px) {
     :root {
       --p-vw-x: 4em;
     }
   }
+
   html {
     background-color: tomato;
     /* background: coral; */
     /* color: ghostwhite; */
     font-family: Georgia, serif;
     scroll-behavior: smooth;
+    color: maroon;
+
   }
+
+  /* html {
+    --s: 100px;
+    --c1: coral;
+    --c2: tomato;
+
+    --_s: 37.5% 12.5% at 62.5%;
+    --_g: 34% 99%, #0000 101%;
+    --g1: radial-gradient(var(--_s) 100%, #0000 32%, var(--c1) var(--_g));
+    --g2: radial-gradient(var(--_s) 0, #0000 32%, var(--c1) var(--_g));
+    --g3: radial-gradient(var(--_s) 100%, #0000 32%, var(--c2) var(--_g));
+    --g4: radial-gradient(var(--_s) 0, #0000 32%, var(--c2) var(--_g));
+    background:
+      var(--g1),
+      var(--g2) 0 calc(3*var(--s)),
+      var(--g3) var(--s) calc(3*var(--s)),
+      var(--g4) var(--s) calc(6*var(--s)),
+      var(--g1) calc(2*var(--s)) calc(6*var(--s)),
+      var(--g2) calc(2*var(--s)) calc(9*var(--s)),
+      var(--g3) calc(3*var(--s)) calc(9*var(--s)),
+      var(--g4) calc(3*var(--s)) 0,
+      repeating-linear-gradient(var(--c1) 0 25%, var(--c2) 0 50%);
+    background-size: calc(4*var(--s)) calc(12*var(--s));
+  } */
 
   body {
     margin: 0;
@@ -32,9 +60,10 @@
     text-shadow: .5em .2em orangered;
   }
 
-  a.margherita {
-    text-shadow: .5em .2em mediumpurple;
+  .margherita {
+    text-shadow: .5rem .5rem mediumslateblue;
   }
+
   a:hover {
     font-style: italic;
   }
@@ -51,13 +80,17 @@
   }
 
   #Header h1 {
-    font-size: 4em;
+    font-size: 4rem;
     flex-shrink: 1;
     font-weight: 500;
     margin: 0;
     color: bisque;
     text-shadow: .5rem .2rem limegreen;
     margin-right: var(--p);
+  }
+
+  #Header h1 span {
+    font-size: 3rem;
   }
 
   #Header p {
@@ -74,6 +107,7 @@
     font-size: 1.5em;
     font-style: italic;
     text-transform: uppercase;
+    /* font-weight: ; */
   }
 
   #Header dl,
@@ -129,10 +163,10 @@
   #Menu:target {
     width: 15em;
     /* float: left; */
-    display: block;
+    /* display: block; */
     /* position: fixed; */
-    max-width: 70vw;
-    height: 100%;
+    /* max-width: 70vw; */
+    /* height: 100%; */
     /* z-index: 1; */
     /* background:burlywood */
   }
@@ -152,10 +186,15 @@
     /* padding-left: var(--p) */
   }
 
-  #Main>ol {
-    width: 100%;
+  #Main > ol {
     list-style: none;
     padding: 0;
+    min-width: 0;
+  }
+
+  #Main > ol > li {
+    display: flex;
+    /* overflow-x: scroll; */
   }
 
   article {
@@ -163,6 +202,7 @@
     height: 8 0vh;
     position: relative;
     /* background: lightsalmon; */
+    width: 100%;
   }
 
 
@@ -179,7 +219,7 @@
     margin: 0;
     /* padding: var(--p); */
     /* padding-bottom: 0; */
-    text-shadow: .2em .1em 0 mediumblue;
+    /* text-shadow: .5rem 1rem 0 mediumblue; */
     font-size: 3em;
     font-weight: 400;
     /* float: left; */
@@ -201,6 +241,7 @@
   article dd {
     margin: 0;
   }
+
   article dd:first-of-type {
     margin-bottom: 1em;
   }
@@ -214,6 +255,7 @@
     padding: var(--p);
     font-style: italic;
   }
+
   /* article ul,
   article li {
     height: 100%;
@@ -225,15 +267,17 @@
     overflow-y: hidden;
     white-space: nowrap;
   } */
-  article li {
+  /* article li {
     width: 100%;
-  }
+  } */
 
   article div {
-    /* clear: both; */
     overflow-x: scroll;
+    /* clear: both; */
     white-space: nowrap;
-    width: 100%;
+    /* width: 100%; */
+    /* padding: 50px; */
+    padding: 1em;
   }
 
   #Main li:nth-child(even) img:first-child {
@@ -246,12 +290,14 @@
     height: 80vh;
     width: 70vw;
   }
+
   article img {
-    box-shadow: 4px 4px 0 bisque;
+    box-shadow: 0 0 0 15px bisque;
     margin-right: 1em;
     margin-bottom: 1em;
     transform: rotate(1deg);
   }
+
   /* article img:first-child {
     margin-left: var(--p)
   } */
@@ -266,7 +312,7 @@
 </style>
 <header id="Header">
   <div>
-    <h1>Belo de Mama</h1>
+    <h1 lang="it">Bello <span>de</span> Mama</h1>
     <p>Pizzeria</p>
   </div>
   <dl>
@@ -335,7 +381,7 @@
     <li>
       <article>
         <header>
-          <h1 id="Margherita">Margherita</h1>
+          <h1 id="Margherita" class="margherita">Margherita</h1>
           <dl>
             <dt>Price</dt>
             <dd>฿<strong>270</strong></dd>
